@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 600px;
+            text-align: center;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-container button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>House Price Prediction</h2>
+        <form action="{{ url_for('predict_datapoint') }}" method="POST">
+            <label for="longitude">Enter the longitude:</label>
+            <input type="text" name="longitude" placeholder="Longitude" required>
+
+            <label for="latitude">Enter the latitude:</label>
+            <input type="text" name="latitude" placeholder="Latitude" required>
+
+            <label for="housing_median_age">Enter the housing median age:</label>
+            <input type="text" name="housing_median_age" placeholder="Housing Median Age" required>
+
+            <label for="total_rooms">Enter the total rooms:</label>
+            <input type="text" name="total_rooms" placeholder="Total Rooms" required>
+
+            <label for="total_bedrooms">Enter the total bedrooms:</label>
+            <input type="text" name="total_bedrooms" placeholder="Total Bedrooms" required>
+
+            <label for="population">Enter the population:</label>
+            <input type="text" name="population" placeholder="Population" required>
+
+            <label for="households">Enter the households:</label>
+            <input type="text" name="households" placeholder="Households" required>
+
+            <label for="median_income">Enter the median income:</label>
+            <input type="text" name="median_income" placeholder="Median Income" required>
+
+            <button type="submit">Submit</button>
+        </form>
+        <h2>The House price prediction is: {{ result }}</h2>
+    </div>
+</body>
+</html>
