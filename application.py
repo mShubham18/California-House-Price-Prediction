@@ -26,7 +26,7 @@ def predict_datapoint():
 
         new_data_scaled = scaler_model.transform([[longitude,latitude,housing_median_age,total_rooms,total_bedrooms,population,households,median_income]])
         result = elastic_model.predict(new_data_scaled)[0]
-        return render_template("form.html",result = f"{result:.2f}")
+        return render_template("form.html",result = f"$ {result:.2f}")
     else:
         return render_template("form.html")
 
